@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background: rgb(149, 132, 187);
+}
+
+label {
+  display: block;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+input {
+  margin-bottom: 25px;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+}
+
+.wrapper {
+  width: min(100% - 1rem, 40rem);
+  margin-inline: auto;
+  border: 1px solid red;
+}
+
+.top-header {
+  min-height: 10rem;
+  display: grid;
+  place-content: center;
+}
+
+.box {
+  min-height: 5rem;
+  background: teal;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  margin-bottom: 25px;
+}
