@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --fontsize-m: clamp(1.2rem, 3.5vw, 2rem);
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   background: #363140;
@@ -20,12 +24,13 @@ p {
 
 label {
   display: block;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
+  font-size: var(--fontsize-m);
   margin-bottom: 0.3rem;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: var(--fontsize-m);
   margin-bottom: 0.3rem;
 }
 
@@ -34,7 +39,7 @@ input {
 }
 
 input[type="text"] {
-  font-size: 1.3rem;
+  font-size: var(--fontsize-m);
   padding: 0.5rem;
   border-radius: 4px;
   border: none;
@@ -55,9 +60,62 @@ input[type="text"] {
 }
 
 .box {
-  min-height: 5rem;
+  min-height: 8rem;
   background: #008080;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   margin-bottom: 25px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 500px) {
+  .flex {
+    flex-direction: column;
+  }
+}
+
+/* Toggle Button */
+
+.toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-text {
+  font-size: var(--fontsize-m);
+}
+
+.toggle-btn {
+  background: #26232d;
+  width: 60px;
+  height: 30px;
+  border-radius: 50px;
+  margin: 0 10px;
+}
+
+.inner-circle {
+  cursor: pointer;
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50px;
+  background: white;
+  transition: all 250ms;
+}
+
+.toggle-btn.toggled > .inner-circle {
+  transform: translateX(30px);
+  background: lightgreen;
+}
+
+.toggle-btn.toggled {
+  background: #514b5e;
+}
+
+.unselected {
+  opacity: 0.25;
 }

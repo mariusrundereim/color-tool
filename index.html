@@ -17,9 +17,9 @@
   </head>
   <body>
     <header class="top-header">
-      <h1>Color Lighten/Darker</h1>
+      <h1>Color Tool</h1>
       <div>
-        <label for="hex">Color(HEX)</label>
+        <!-- <label for="hex">Color(HEX)</label> -->
         <input
           type="text"
           name="hex"
@@ -33,18 +33,28 @@
       </div>
     </header>
     <div class="wrapper">
-      <div>
-        <label for="slider" id="sliderText">0%</label>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="0"
-          class="slider"
-          id="slider"
-          name="slider"
-        />
+      <div class="flex">
+        <div>
+          <label for="slider" id="sliderText">0%</label>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            class="slider"
+            id="slider"
+            name="slider"
+          />
+        </div>
+        <div class="toggle">
+          <p class="toggle-text" id="lightenText">Lighten</p>
+          <div class="toggle-btn" id="toggleBtn">
+            <div class="inner-circle"></div>
+          </div>
+          <p class="toggle-text unselected" id="darkenText">Darken</p>
+        </div>
       </div>
+
       <div>
         <h3>Input Color</h3>
         <div class="box" id="inputColor"></div>

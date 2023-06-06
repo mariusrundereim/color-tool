@@ -6,6 +6,23 @@ const alteredColorText = document.querySelector("#alteredColorText");
 const slider = document.querySelector("#slider");
 const sliderNumber = document.querySelector("#sliderText");
 
+const lightenText = document.querySelector("#lightenText");
+const darkenText = document.querySelector("#darkenText");
+const toggleBtn = document.querySelector("#toggleBtn");
+
+toggleBtn.addEventListener("click", () => {
+  if (toggleBtn.classList.contains("toggled")) {
+    toggleBtn.classList.remove("toggled");
+    lightenText.classList.remove("unselected");
+    darkenText.classList.add("unselected");
+  } else {
+    toggleBtn.classList.add("toggled");
+    lightenText.classList.add("unselected");
+    darkenText.classList.remove("unselected");
+  }
+  reset();
+});
+
 // HEX Input
 hexInput.addEventListener("keyup", () => {
   const hex = hexInput.value;
@@ -13,6 +30,7 @@ hexInput.addEventListener("keyup", () => {
 
   const strippedHex = hex.replace("#", "");
   inputColor.style.backgroundColor = "#" + strippedHex;
+  reset();
 });
 
 // HEX Valid
@@ -98,8 +116,32 @@ slider.addEventListener("input", () => {
   if (!isValidHex(hexInput.value)) return;
   sliderNumber.textContent = `${slider.value} %`;
 
+  // calculate the appropiate value for the color alteration
+
+  /*
+  const valueAddition = toggleBtn.classList.contains("toggled")
+    ? -slider.value
+    : slider.value;
+  */
+
+  let valueAddition;
+  if (toggleBtn.classList.contains("toggled")) {
+    valueAddition = -slider.value;
+  } else {
+    valueAddition = slider.value;
+  }
+
   // get altered hex value
-  const alteredHex = alterColor(hexInput.value, slider.value);
+  const alteredHex = alterColor(hexInput.value, valueAddition);
   alteredColor.style.backgroundColor = alteredHex;
   alteredColorText.innerText = `Altered Color ${alteredHex}`;
 });
+
+// Reset
+
+const reset = () => {
+  slider.value = 0;
+  sliderNumber.innerText = `0%`;
+  alteredColor.style.backgroundColor = hexInput.value;
+  alteredColorText.innerText = `Altered Color ${hexInput.value}`;
+};
