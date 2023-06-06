@@ -43,7 +43,7 @@ input[type="text"] {
 .wrapper {
   width: min(100% - 1rem, 50rem);
   margin-inline: auto;
-  border: 1px solid red;
+  margin-top: 3rem;
 }
 
 .top-header {
@@ -56,7 +56,7 @@ input[type="text"] {
 
 .box {
   min-height: 5rem;
-  background: teal;
+  background: #008080;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   margin-bottom: 25px;
