@@ -6,6 +6,7 @@
 
 :root {
   --fontsize-m: clamp(1.2rem, 3.5vw, 2rem);
+  --fontsize-s: clamp(1rem, 3.5vw, 1.3rem);
 }
 
 body {
@@ -77,6 +78,16 @@ input[type="text"] {
   .flex {
     flex-direction: column;
   }
+}
+
+code {
+  font-size: var(--fontsize-s);
+  display: block;
+  color: white;
+  background: #26232d;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
 }
 
 /* Toggle Button */
